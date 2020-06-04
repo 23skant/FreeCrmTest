@@ -8,6 +8,7 @@ public class CheckAvailPage {
 	
 	
 	private WebDriver d;
+	
 	private String zip = "//*[@id='zipcode']";
 	private String address = "//*[@id='streetaddress']";
 	private String ckav_btn = "//*[@title='Continue to packages']";
@@ -39,8 +40,35 @@ public class CheckAvailPage {
 			return false;
 		}
 		el.sendKeys("91911");
+		System.out.println("zip details entered");
 		return true;
 	
 	}
+	
+     public boolean enterAddress() {
+		
+		WebElement el = d.findElement(By.xpath(address));
+		if(el==null) {
+			System.out.println("address line is not present");
+			return false;
+		}
+		el.sendKeys("952 helix ave");
+		System.out.println("address details entered");
+		return true;
+	
+	}
+     
+     public boolean ckavClick() {
+ 		
+ 		WebElement el = d.findElement(By.xpath(ckav_btn));
+ 		if(el==null) {
+ 			System.out.println("CKAV button is not preset");
+ 			return false;
+ 		}
+ 		el.click();
+ 		System.out.println("Clicked on CKAV button");
+ 		return true;
+ 	
+ 	}
 }
 

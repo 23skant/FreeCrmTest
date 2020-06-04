@@ -77,5 +77,34 @@ public class CommonMethods {
 		
 		
 	}
+	
+	public boolean WaitForSpinnerToLoaded() {
+		try {
+			for (int i = 0; i <= 7000; i++) {
+				WebElement webSpinner = gdriver.findElement(By.xpath("xpath:=//*[@class='spinner']"));
+					
+				if (!(webSpinner == null)) {
+					if (!webSpinner.isEnabled()) {
+						System.out.println("checkPageContainsText - WebElement found successful - has delayed with --> "+ (System.currentTimeMillis()) + "ms");
+								
+						break;
+					} else {
+						System.out.println("Holds because of spinner");
+						i++;
+					}
+				} else {
+					System.out.println("checkPageContainsText - WebElement found successful - has delayed with --> "
+							+ (System.currentTimeMillis()) + "ms" );
+							
+					break;
+				}
+			}
+		} catch (Exception e) {
 
+		}
+		return true;
+	}
+
+	
+	
 }

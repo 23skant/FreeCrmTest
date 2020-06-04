@@ -8,6 +8,7 @@ public class CheckAvailPage {
 	
 	
 	private WebDriver d;
+	private CommonMethods commonfunction;
 	
 	private String zip = "//*[@id='zipcode']";
 	private String address = "//*[@id='streetaddress']";
@@ -17,6 +18,7 @@ public class CheckAvailPage {
 	
 	public CheckAvailPage(WebDriver driver) {
 		this.d = driver;
+		commonfunction = new CommonMethods(driver);
 	}
 	
 	public boolean isCKAVpageDisplay() {
@@ -66,7 +68,9 @@ public class CheckAvailPage {
  			return false;
  		}
  		el.click();
+ 		
  		System.out.println("Clicked on CKAV button");
+ 		commonfunction.WaitForSpinnerToLoaded();
  		return true;
  	
  	}

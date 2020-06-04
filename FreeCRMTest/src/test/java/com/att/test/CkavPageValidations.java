@@ -26,16 +26,14 @@ public class CkavPageValidations {
 	}
 	
 	@Test(priority = 1,description = "ckav page test")
-	public void CkavPageContinue() throws InterruptedException {
+	public void CkavPageContinue() {
 		
 		com.att.CheckAvailPage ckavpage = new com.att.CheckAvailPage(driver);
 		Assert.assertTrue(ckavpage.isCKAVpageDisplay());
 		Assert.assertTrue(ckavpage.enterZip());
 		Assert.assertTrue(ckavpage.enterAddress());
 		Assert.assertTrue(ckavpage.ckavClick());
-		Thread.sleep(10000);
-		
-		
+	
 		com.att.ShopOffersPage offers = new com.att.ShopOffersPage(driver);
 		Assert.assertTrue(offers.isShopPageDisplay());
 		

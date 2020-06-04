@@ -2,12 +2,15 @@ package com.att;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -67,10 +70,11 @@ public class CommonMethods {
 		
 	}
 	
-	public WebElement getElement(WebElement element) {
+	public void fcommonwait(String element, int time) {
+		WebElement el = gdriver.findElement(By.xpath(element));
+		WebDriverWait wait = new WebDriverWait(gdriver, time);
+		wait.until(ExpectedConditions.elementToBeClickable(el));
 		
-		
-		return element;
 		
 	}
 

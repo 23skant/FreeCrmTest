@@ -6,8 +6,8 @@
       <class name="com.att.test.CkavPageValidations">
         <methods>
           <include name="LaunchBrowser"/>
-          <include name="CkavPageCOntinue"/>
           <include name="closeBrowser"/>
+          <include name="CkavPageContinue"/>
         </methods>
       </class> <!-- com.att.test.CkavPageValidations -->
     </classes>
